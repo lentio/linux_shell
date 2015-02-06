@@ -2,9 +2,9 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-#mydir=$(cd $(dirname $0);pwd)
-#appdir=$(dirname ${mydir})
-appdir="bin"
+mydir=$(cd $(dirname $0);pwd)
+appdir=${mydir}/bin
+echo $appdir
 
 RED="\\e[1m\\e[31m"
 

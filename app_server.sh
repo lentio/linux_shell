@@ -41,6 +41,7 @@ service_start()
                 fi
             fi
         done
+        cd ${appdir}/;
         ./${appname}
     fi
 }

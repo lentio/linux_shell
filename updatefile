@@ -1,0 +1,17 @@
+#!/bin/sh
+verfile="version.txt"
+now=date"+%Y%m%d"
+bakfile=$verfile.$now
+
+mv $verfile $bakfile
+rz -e
+if [ ! -f $verfile ]; then
+    # restore and fail!
+    mv   $bakfile $verfile 
+    echo "Failt to receive new $verfile"
+    exit
+fi
+
+mv ./data/$verfile ./data/$bakfile
+cp $verfile ./data/$verfile 
+md5sum ./data/$verfile

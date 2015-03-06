@@ -10,7 +10,7 @@ url=http://release.com/ver.txt
 verfile="ver.txt"
 now=$(date "+%Y%m%d")
 bakfile=$verfile.$now
-testfile=test.$now.txt
+testfile=test.$now.tmp
 
 mv ./data/$verfile ./data/$bakfile
 cp $verfile ./data/$verfile
@@ -27,7 +27,8 @@ rm $testfile
 
 #auto check matched!
 if [ $1 != $check ]; then
-    echo "VerAttr.txt dismatched,abort!"
+    echo "$verfile dismatched,abort and restore!"
+    cp ./data/$bakfile ./data/$verfile
     exit
 fi
 
